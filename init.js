@@ -7,9 +7,10 @@ dotenv.config();
 
 export class Server {
   expressApp = new ExpressApp();
+  httpServer;
 
   constructor() {
-    // HTTP 서버를 생성하고, expressApp을 사용하여 요청을 처리하도록 설정합니다.
+    // HTTP 서버를 생성하고, expressApp을 사용하여 요청을 처리하도록 설정
     this.httpServer = new Http.Server(this.expressApp.app);
   }
 
@@ -22,12 +23,13 @@ export class Server {
   // Sequelize로 데이터베이스에 인증 시도
   sequelizeAuthenticate = () => {
     // sequelize.authenticate() 메서드를 사용하여 데이터베이스에 인증
+    // 시퀄라이저 내장함수임
     return sequelize.authenticate();
   };
 
   // Sequelize로 데이터베이스와 모델을 동기화하는 메서드
   sequelizeSync = () => {
-    // sequelize.sync() 메서드를 사용하여 데이터베이스와 모델을 동기화합니다. (alter 옵션을 통해 스키마를 변경합니다.)
+    // sequelize.sync() 메서드를 사용하여 데이터베이스와 모델을 동기화 (alter 옵션을 통해 스키마를 변경)
     // 이 부분이 마이그레이션을 안해도 되는 이유였음
     return sequelize.sync({ alter: true });
   };

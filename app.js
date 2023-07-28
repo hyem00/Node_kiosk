@@ -1,16 +1,15 @@
 import express from "express";
 import cookieParser from "cookie-parser";
-// 이 부분 내일 일어나자마자 질문하기
 import routes from "./routes";
 
-export class App {
+export class ExpressApp {
   app = express();
 
   constructor() {
     this.setAppSettings();
     this.setAppRouter();
   }
-
+  //
   setAppSettings = () => {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
