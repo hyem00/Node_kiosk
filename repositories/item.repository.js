@@ -2,27 +2,27 @@ import { Item } from "../db";
 
 class ItemRepository {
   create = async (item) => {
-    return Item.create(item);
+    return await Item.create(item);
   };
 
   read = async () => {
-    return Item.findAll();
+    return await Item.findAll();
   };
 
   typeRead = async () => {
-    return Item.findAll({ order: ["type"] });
+    return await Item.findAll({ order: ["type"] });
   };
 
   getAmount = async (id) => {
     const item = Item.findOne({ id });
-    return item.amount;
+    return await item.amount;
   };
 
   delete = async (id) => {
-    return Item.destroy({ where: { id } });
+    return await Item.destroy({ where: { id } });
   };
   update = async (item) => {
-    return Item.update(
+    return await Item.update(
       { name: item.name, price: item.price },
       { where: { id: item.id } }
     );

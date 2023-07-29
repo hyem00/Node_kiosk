@@ -17,5 +17,7 @@ router.delete("/:id", itemController.getAmount);
 // 상품 삭제 확인 (2차)
 router.delete("/:id/requestion", itemController.requestion);
 //상품 수정
-router.post("/:id", itemController.update);
+router.patch("/:id", itemController.update);
 export default router;
+
+// 부분수정 : patch , 전체 수정(+없으면 생성) :put

@@ -1,9 +1,9 @@
 import Item from "../models/item";
-import OrderItem from "../models/order_item";
+import OrderItem from "../models/item";
 
 export default () => {
-  Item.hasMany(OrderItem, {
-    sourceKey: "id",
+  OrderItem.belongsTo(Item, {
+    targetKey: "id",
     foreignKey: "item_id",
   });
 };
