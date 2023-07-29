@@ -35,7 +35,6 @@ class OrserItemRepository {
       { state },
       { where: { id } }
     );
-    console.log("@@@@@@@", at);
     return at;
   };
 
@@ -44,7 +43,6 @@ class OrserItemRepository {
       { amount: getItemOrderAmount - 1, state },
       { where: { id } }
     );
-    console.log("@@@@@@@", at);
     return at;
   };
   update = async (id, state) => {

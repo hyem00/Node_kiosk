@@ -1,29 +1,21 @@
 import { Model, DataTypes } from "sequelize";
 import sequelize from "../sequelize";
 
-class Item extends Model {}
+class Item_order_customer extends Model {}
 
-Item.init(
+Item_order_customer.init(
   {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    optionId: {
-      type: DataTypes.INTEGER,
-    },
-    price: {
+    item_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 0,
     },
-    type: {
-      type: DataTypes.ENUM("coffee", "juice", "food"),
+    order_customer_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     amount: {
@@ -31,13 +23,21 @@ Item.init(
       allowNull: false,
       defaultValue: 0,
     },
+    option: {
+      type: DataTypes.INTEGER,
+    },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+    },
   },
   {
     sequelize,
-    modelName: "Item",
+    modelName: "Item_order_customer",
     underscored: true,
     timestamps: true,
   }
 );
 
-export default Item;
+export default Item_order_customer;

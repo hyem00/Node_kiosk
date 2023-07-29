@@ -18,6 +18,7 @@ router.delete("/:id", itemController.getAmount);
 router.delete("/:id/requestion", itemController.requestion);
 //상품 수정
 router.patch("/:id", itemController.update);
+
 export default router;
 
 // 부분수정 : patch , 전체 수정(+없으면 생성) :put
