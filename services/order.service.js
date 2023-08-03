@@ -37,12 +37,14 @@ class OrderService {
     getState = await this._orderRepo.getState(id);
     // 질문 1번
     if (getState === false) {
+      // state true로 변경
       await this._orderRepo.updateOrderCustomer(id);
-      // return {
-      //   code: 400,
-      //   message: "주문이 완료되었습니다",
-      //   data: await this._orderRepo.updateItemOrder(id),
-      // };
+      // amount -1 해주기
+      await this._orderRepo.minusAmount();
+      return {
+        code: 400,
+        message: "주문이 완료되었습니다",
+      };
     } else {
       return {
         code: 200,

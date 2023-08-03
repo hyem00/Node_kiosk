@@ -11,16 +11,15 @@ Option.init(
       primaryKey: true,
     },
     extra_price: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.INTEGER,
     },
     shot_price: {
       type: DataTypes.INTEGER,
     },
     hot: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: 0,
+      defaultValue: false,
     },
   },
   {
